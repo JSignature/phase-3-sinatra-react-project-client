@@ -1,10 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import NavBar from './components/Navbar/NavBar'
+import ClientList from './components/Client/ClientList/ClientList'
+import ClientAdd from './components/Client/ClientAdd/ClientAdd'
+import ClientEdit from './components/Client/ClientEdit/ClientEdit'
+import ClientView from './components/Client/ClientView/ClientView'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <>
+      <NavBar />
+      <Routes>
+        <Route path={'/'} />
+        <Route path={'/clients/list'} element={<ClientList />} />
+        <Route path={'/clients/add'} element={<ClientAdd />} />
+        <Route path={'/clients/view/:client_id'} element={<ClientView />} />
+        <Route path={'/clients/edit/:client_id'} element={<ClientEdit />} />
+      </Routes>
+    </>
+  )
+}
+
+export default App
+
+{
+  /* Commented this out, part of the original boiler plate */
+}
+{
+  /* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,9 +40,5 @@ function App() {
         >
           Learn React
         </a>
-      </header>
-    </div>
-  );
+      </header> */
 }
-
-export default App;
