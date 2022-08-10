@@ -1,10 +1,10 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/Navbar/NavBar'
-import ClientList from './components/Client/ClientList/ClientList'
-import ClientAdd from './components/Client/ClientAdd/ClientAdd'
-import ClientEdit from './components/Client/ClientEdit/ClientEdit'
-import ClientView from './components/Client/ClientView/ClientView'
+import ClientList from './components/Client/ClientList'
+import ClientAdd from './components/Client/ClientAdd'
+import ClientEdit from './components/Client/ClientEdit'
+import ClientView from './components/Client/ClientView'
 
 function App() {
   return (
