@@ -17,12 +17,26 @@ let ClientList = () => {
       .then(setSearchResults(clients))
   }, [])
 
+  function handleDelete(id) {
+    console.log(`Client id: ${id}`)
+    fetch(`http://127.0.0.1:9292/clients/delete/${id}`, {
+      method: 'DELETE',
+    })
+      .then(r => r.json())
+      .then(deletedClient => {
+        const updatedClients = clients.filter(client => client.id !== id)
+        setClients(updatedClients)
+      })
+  }
+
   return (
     <>
       <Container>
         <Row className="mt-2">
           <Col md={4}>
-            <Button variant="outline-success">Add New Client</Button>
+            <Button variant="outline-success" href="/clients/add">
+              Add New Client
+            </Button>
           </Col>
           <Col md={{ span: 4, offset: 4 }}>
             <Form className="d-flex">
@@ -39,7 +53,7 @@ let ClientList = () => {
 
         {/* This will generate the client cards */}
         <Row>
-          <ClientCard clients={clients} />
+          <ClientCard clients={clients} handleDelete={handleDelete} />
         </Row>
       </Container>
     </>
