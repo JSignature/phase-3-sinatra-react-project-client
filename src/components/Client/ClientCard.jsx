@@ -20,7 +20,9 @@ const ClientCard = ({ clients, handleDelete }) => {
             <Card.Body>
               <Card.Title>{client.client_first_name}</Card.Title>
               <Card.Text>{client.client_email}</Card.Text>
-              <Button variant="primary">Edit</Button>
+              <Button variant="primary" href={`/clients/edit/${client.id}`}>
+                Edit
+              </Button>
               <Button
                 onClick={() => handleDeleteClick(client.id)}
                 variant="primary"

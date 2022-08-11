@@ -4,7 +4,6 @@ import NavBar from './components/Navbar/NavBar'
 import ClientList from './components/Client/ClientList'
 import ClientAdd from './components/Client/ClientAdd'
 import ClientEdit from './components/Client/ClientEdit'
-import ClientView from './components/Client/ClientView'
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
         <Route path={'/'} />
         <Route path={'/clients/list'} element={<ClientList />} />
         <Route path={'/clients/add'} element={<ClientAdd />} />
-        <Route path={'/clients/view/:client_id'} element={<ClientView />} />
+
         <Route path={'/clients/edit/:client_id'} element={<ClientEdit />} />
       </Routes>
     </>
