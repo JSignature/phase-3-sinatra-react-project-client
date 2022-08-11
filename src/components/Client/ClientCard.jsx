@@ -15,8 +15,12 @@ const ClientCard = ({ clients, handleDelete }) => {
     <Container>
       <Row>
         {clients.map(client => (
-          <Card key={client.id} className="m-3" style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={client.client_image} />
+          <Card key={client.id} className="m-3" style={{ width: '12rem' }}>
+            <Card.Img
+              variant="top"
+              className="img-fluid rounded-circle mt-1"
+              src={client.client_image}
+            />
             <Card.Body>
               <Card.Title>{client.client_first_name}</Card.Title>
               <Card.Text>{client.client_email}</Card.Text>

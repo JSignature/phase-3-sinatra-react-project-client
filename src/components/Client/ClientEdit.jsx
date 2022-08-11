@@ -67,9 +67,13 @@ let ClientEdit = () => {
 
   return (
     <Container>
-      <Card className="m-3" style={{ width: '8rem' }}>
-        <Card.Img variant="top" src={clientImage} />
-      </Card>
+      <Card.Img
+        variant="top"
+        src={clientImage}
+        className="img-fluid rounded-circle mt-3 "
+        style={{ width: '10rem' }}
+      />
+
       <Form className="mt-2" onSubmit={updateClient}>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridFirstName">
