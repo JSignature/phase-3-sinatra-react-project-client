@@ -16,7 +16,7 @@ let NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto ">
             <Nav.Link href="/clients/list">Clients</Nav.Link>
-            <Nav.Link href="#link">Dogs</Nav.Link>
+            <Nav.Link href="/dogs/list">Dogs</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

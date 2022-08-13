@@ -1,11 +1,11 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-import ClientList from './ClientList'
+import DogList from './DogList'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 
-const ClientCard = ({ clients, handleDelete }) => {
+const DogCard = ({ dogs, handleDelete }) => {
   function handleDeleteClick(id) {
     handleDelete(id)
   }
@@ -13,21 +13,21 @@ const ClientCard = ({ clients, handleDelete }) => {
   return (
     <Container>
       <Row>
-        {clients.map(client => (
-          <Card key={client.id} className="m-3" style={{ width: '12rem' }}>
+        {dogs.map(dog => (
+          <Card key={dog.id} className="m-3" style={{ width: '12rem' }}>
             <Card.Img
               variant="top"
-              className="img-fluid rounded-circle mt-1"
-              src={client.client_image}
+              className="img-fluid  mt-1"
+              src={dog.dog_image}
             />
             <Card.Body>
-              <Card.Title>{client.client_first_name}</Card.Title>
-              <Card.Text>{client.client_email}</Card.Text>
-              <Button variant="primary" href={`/clients/edit/${client.id}`}>
+              <Card.Title>{dog.dog_name}</Card.Title>
+              <Card.Text>{dog.dog_breed}</Card.Text>
+              <Button variant="primary" href={`/dogs/edit/${dog.id}`}>
                 View/Edit
               </Button>
               <Button
-                onClick={() => handleDeleteClick(client.id)}
+                onClick={() => handleDeleteClick(dog.id)}
                 variant="primary"
               >
                 Delete
@@ -40,4 +40,4 @@ const ClientCard = ({ clients, handleDelete }) => {
   )
 }
 
-export default ClientCard
+export default DogCard

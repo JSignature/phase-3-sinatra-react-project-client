@@ -4,25 +4,25 @@ import Container from 'react-bootstrap/esm/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
-import ClientCard from './ClientCard'
+import DogCard from './DogCard'
 
-let ClientList = () => {
-  const [clients, setClients] = useState([])
+let DogList = () => {
+  const [dogs, setDogs] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:9292/clients/list')
+    fetch('http://localhost:9292/dogs/list')
       .then(resp => resp.json())
-      .then(obj => setClients(obj))
+      .then(obj => setDogs(obj))
   }, [])
 
   function handleDelete(id) {
-    fetch(`http://127.0.0.1:9292/clients/delete/${id}`, {
+    fetch(`http://127.0.0.1:9292/dogs/delete/${id}`, {
       method: 'DELETE',
     })
       .then(r => r.json())
-      .then(deletedClient => {
-        const updatedClients = clients.filter(client => client.id !== id)
-        setClients(updatedClients)
+      .then(deletedDog => {
+        const updatedDogs = dogs.filter(dog => dog.id !== id)
+        setDogs(updatedDogs)
       })
   }
 
@@ -31,8 +31,8 @@ let ClientList = () => {
       <Container>
         <Row className="mt-2">
           <Col md={4}>
-            <Button variant="outline-success" href="/clients/add">
-              Add New Client
+            <Button variant="outline-success" href="/dogs/add">
+              Add New Dog
             </Button>
           </Col>
           <Col md={{ span: 4, offset: 4 }}>
@@ -48,13 +48,13 @@ let ClientList = () => {
           </Col>
         </Row>
 
-        {/* This will generate the client cards */}
+        {/* This will generate the dog cards */}
         <Row>
-          <ClientCard clients={clients} handleDelete={handleDelete} />
+          <DogCard dogs={dogs} handleDelete={handleDelete} />
         </Row>
       </Container>
     </>
   )
 }
 
-export default ClientList
+export default DogList

@@ -5,8 +5,9 @@ import ClientList from './components/Client/ClientList'
 import ClientAdd from './components/Client/ClientAdd'
 import ClientEdit from './components/Client/ClientEdit'
 import HomePage from './components/HomePage'
-import Carousel from 'react-bootstrap/Carousel'
-import Container from 'react-bootstrap/esm/Container'
+import DogAdd from './components/Dog/DogAdd'
+import DogEdit from './components/Dog/DogEdit'
+import DogList from './components/Dog/DogList'
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         <Route path={'/clients/list'} element={<ClientList />} />
         <Route path={'/clients/add'} element={<ClientAdd />} />
         <Route path={'/clients/edit/:client_id'} element={<ClientEdit />} />
+        <Route path={'/dogs/list'} element={<DogList />} />
+        <Route path={'/dogs/add'} element={<DogAdd />} />
+        <Route path={'/dogs/edit/:dog_id'} element={<DogEdit />} />
       </Routes>
     </>
   )
