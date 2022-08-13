@@ -9,7 +9,7 @@ let NavBar = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <i class="fa-solid fa-shield-dog"></i> Brindle App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
