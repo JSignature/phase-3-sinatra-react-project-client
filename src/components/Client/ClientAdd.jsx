@@ -14,7 +14,6 @@ let ClientAdd = () => {
   const [clientAddressZip, setClientAddressZip] = useState('')
   const [clientPhone, setClientPhone] = useState('')
   const [clientEmail, setClientEmail] = useState('')
-  const [clientImage, setClientImage] = useState('')
   const [myKey, setMyKey] = useState(0)
 
   function handleNewClientSubmit(e) {

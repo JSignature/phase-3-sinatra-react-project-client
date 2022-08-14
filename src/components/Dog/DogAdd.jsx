@@ -12,7 +12,6 @@ let DogAdd = () => {
   const [dogWeight, setDogWeight] = useState('')
   const [dogGender, setDogGender] = useState('')
   const [dogCoatLength, setDogCoatLength] = useState('')
-  const [dogImage, setDogImage] = useState('')
   const [clientArray, setClientArray] = useState([])
   const [selectedClient, setSelectedClient] = useState('')
   const [myKey, setMyKey] = useState(0)
@@ -133,12 +132,12 @@ let DogAdd = () => {
             <Form.Select
               aria-label="Default select example"
               onChange={e => {
-                setSelectedClient(e.target.selectedOptions[0].index)
+                setSelectedClient(e.target.selectedOptions[0].id)
               }}
             >
               <option>Choose Client</option>
               {clientArray.map(client => (
-                <option key={client.id} value={client.client_id}>
+                <option key={client.id} id={client.id} value={client.client_id}>
                   {`${client.client_last_name}, ${client.client_first_name}`}
                 </option>
               ))}
@@ -146,7 +145,7 @@ let DogAdd = () => {
           </Form.Group>
         </Row>
 
-        <Button variant="primary" type="submit">
+        <Button variant="info" type="submit">
           Submit
         </Button>
       </Form>

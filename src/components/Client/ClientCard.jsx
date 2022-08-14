@@ -1,10 +1,8 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-import ClientList from './ClientList'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
-import Col from 'react-bootstrap/Col'
 
 const ClientCard = ({ clients, handleDelete }) => {
   function handleDeleteClick(id) {

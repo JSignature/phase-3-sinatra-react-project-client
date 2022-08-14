@@ -38,7 +38,6 @@ let ClientEdit = () => {
     setClientPhone(obj.client_phone)
     setClientEmail(obj.client_email)
     setClientImage(obj.client_image)
-    // setClientDog(obj.dogs)
     setDogArray(obj.dogs)
   }
 
