@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import { useParams } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
+import DogCard from '../Dog/DogCard'
 
 let ClientEdit = () => {
   const [clientFirstName, setClientFirstName] = useState('')
@@ -17,7 +18,7 @@ let ClientEdit = () => {
   const [clientPhone, setClientPhone] = useState('')
   const [clientEmail, setClientEmail] = useState('')
   const [clientImage, setClientImage] = useState('')
-  const [clientDog, setClientDog] = useState('')
+  const [dogArray, setDogArray] = useState([])
 
   const params = useParams()
 
@@ -37,7 +38,8 @@ let ClientEdit = () => {
     setClientPhone(obj.client_phone)
     setClientEmail(obj.client_email)
     setClientImage(obj.client_image)
-    setClientDog(obj.dogs)
+    // setClientDog(obj.dogs)
+    setDogArray(obj.dogs)
   }
 
   function updateClient(e) {
@@ -63,6 +65,17 @@ let ClientEdit = () => {
     })
       .then(resp => resp.json())
       .then(obj => alert('Client was Updated'))
+  }
+
+  function handleDelete(id) {
+    fetch(`http://127.0.0.1:9292/dogs/delete/${id}`, {
+      method: 'DELETE',
+    })
+      .then(r => r.json())
+      .then(deletedDog => {
+        const updatedDogs = dogArray.filter(dog => dog.id !== id)
+        setDogArray(updatedDogs)
+      })
   }
 
   return (
@@ -170,10 +183,14 @@ let ClientEdit = () => {
           </Form.Group>
         </Row>
 
-        <Button variant="primary" type="submit">
+        <Button variant="info" type="submit">
           Save
         </Button>
       </Form>
+      <h3 className="text-center">{`${clientFirstName}'s `}Dogs</h3>
+      <Container className="border-top border-dark ">
+        <DogCard dogs={dogArray} handleDelete={handleDelete} />
+      </Container>
     </Container>
   )
 }

@@ -15,7 +15,7 @@ let DogEdit = () => {
   const [dogGender, setDogGender] = useState('')
   const [dogCoatLength, setDogCoatLength] = useState('')
   const [dogImage, setDogImage] = useState('')
-  const [clientId, setClientId] = useState('')
+  const [clientName, setClientName] = useState('')
 
   const params = useParams()
 
@@ -32,7 +32,7 @@ let DogEdit = () => {
     setDogWeight(obj.dog_weight)
     setDogGender(obj.dog_gender)
     setDogCoatLength(obj.dog_coat_length)
-    setClientId(obj.client_id)
+    setClientName(obj.client.client_first_name)
     setDogImage(obj.dog_image)
   }
 
@@ -46,7 +46,7 @@ let DogEdit = () => {
       dog_weight: dogWeight,
       dog_gender: dogGender,
       dog_coat_length: dogCoatLength,
-      client_id: clientId,
+      client_first_name: clientName,
       dog_image: dogImage,
     }
 
@@ -147,28 +147,17 @@ let DogEdit = () => {
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridClientId">
-            <Form.Label>Client Id</Form.Label>
+            <Form.Label>Client Name</Form.Label>
             <Form.Control
-              value={clientId}
+              value={clientName}
               onChange={e => {
-                setClientId(e.target.value)
-              }}
-            />
-          </Form.Group>
-        </Row>
-        <Row>
-          <Form.Group controlId="formGridDogImage">
-            <Form.Label>Dog Image</Form.Label>
-            <Form.Control
-              value={dogImage}
-              onChange={e => {
-                setDogImage(e.target.value)
+                setClientName(e.target.value)
               }}
             />
           </Form.Group>
         </Row>
 
-        <Button variant="primary" type="submit">
+        <Button variant="info" type="submit">
           Submit
         </Button>
       </Form>
