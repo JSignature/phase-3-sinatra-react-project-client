@@ -17,21 +17,31 @@ const DogCard = ({ dogs, handleDelete }) => {
           <Card key={dog.id} className="m-3" style={{ width: '12rem' }}>
             <Card.Img
               variant="top"
-              className="img-fluid  mt-1"
+              className="img-fluid  mt-1 w-100 "
               src={dog.dog_image}
             />
             <Card.Body>
               <Card.Title>{dog.dog_name}</Card.Title>
-              <Card.Text>{dog.dog_breed}</Card.Text>
-              <Button variant="primary" href={`/dogs/edit/${dog.id}`}>
-                View/Edit
-              </Button>
-              <Button
-                onClick={() => handleDeleteClick(dog.id)}
-                variant="primary"
-              >
-                Delete
-              </Button>
+              <Card.Text className="text-muted">{dog.dog_breed}</Card.Text>
+              <Row>
+                <Button
+                  className="text-muted"
+                  variant="info"
+                  href={`/dogs/edit/${dog.id}`}
+                >
+                  View/Edit
+                </Button>
+              </Row>
+
+              <Row className="mt-2 ">
+                <Button
+                  onClick={() => handleDeleteClick(dog.id)}
+                  variant="info"
+                  className="text-muted"
+                >
+                  Delete
+                </Button>
+              </Row>
             </Card.Body>
           </Card>
         ))}

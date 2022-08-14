@@ -6,16 +6,16 @@ import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 
 let ClientAdd = () => {
-  const [clientFirstName, setClientFirstName] = useState('Jimmy ')
-  const [clientLastName, setClientLastName] = useState('Andreas ')
-  const [clientAddressStreet, setClientAddressStreet] =
-    useState('123 Main Street ')
-  const [clientAddressCity, setClientAddressCity] = useState('Memphis')
-  const [clientAddressState, setClientAddressState] = useState('TN')
-  const [clientAddressZip, setClientAddressZip] = useState('12345')
-  const [clientPhone, setClientPhone] = useState('123-456-7890')
-  const [clientEmail, setClientEmail] = useState('J@example.com')
-  const [clientImage, setClientImage] = useState('Photo')
+  const [clientFirstName, setClientFirstName] = useState('')
+  const [clientLastName, setClientLastName] = useState('')
+  const [clientAddressStreet, setClientAddressStreet] = useState('')
+  const [clientAddressCity, setClientAddressCity] = useState('')
+  const [clientAddressState, setClientAddressState] = useState('')
+  const [clientAddressZip, setClientAddressZip] = useState('')
+  const [clientPhone, setClientPhone] = useState('')
+  const [clientEmail, setClientEmail] = useState('')
+  const [clientImage, setClientImage] = useState('')
+  const [myKey, setMyKey] = useState(0)
 
   function handleNewClientSubmit(e) {
     e.preventDefault()
@@ -39,6 +39,7 @@ let ClientAdd = () => {
     setClientAddressZip('')
     setClientPhone('')
     setClientEmail('')
+    setMyKey(myKey + 1)
 
     fetch('http://127.0.0.1:9292/clients/add', {
       method: 'POST',
@@ -53,7 +54,7 @@ let ClientAdd = () => {
 
   return (
     <Container>
-      <Form className="mt-5" onSubmit={handleNewClientSubmit}>
+      <Form key={myKey} className="mt-5" onSubmit={handleNewClientSubmit}>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridFirstName">
             <Form.Label>First Name</Form.Label>

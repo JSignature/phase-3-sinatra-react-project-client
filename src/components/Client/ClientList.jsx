@@ -31,11 +31,13 @@ let ClientList = () => {
       <Container>
         <Row className="mt-2">
           <Col md={4}>
-            <Button variant="outline-success" href="/clients/add">
+            <Button variant="outline-info" href="/clients/add">
               Add New Client
             </Button>
           </Col>
-          <Col md={{ span: 4, offset: 4 }}>
+
+          {/* Add search bar as a stretch goal */}
+          {/* <Col md={{ span: 4, offset: 4 }}>
             <Form className="d-flex">
               <Form.Control
                 type="search"
@@ -43,9 +45,9 @@ let ClientList = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-info">Search</Button>
             </Form>
-          </Col>
+          </Col> */}
         </Row>
 
         {/* This will generate the client cards */}

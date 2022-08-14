@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <>
       <Container className="text-center">
-        <h1 className="fw-light fs-1 text-info bg-dark">
+        <h1 className="fw-light fs-1 text-light bg-info  mt-3">
           Welcome To Brindle App
         </h1>
       </Container>
@@ -14,7 +14,7 @@ const HomePage = () => {
         <Carousel fade className="shadow-lg p-3 mb-5 bg-body rounded">
           <Carousel.Item>
             <img
-              className="d-block w-100 "
+              className="d-block w-50 mx-auto "
               src="https://images.pexels.com/photos/7788657/pexels-photo-7788657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="First slide"
             />
@@ -25,7 +25,7 @@ const HomePage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="d-block w-50 mx-auto"
               src="https://images.pexels.com/photos/6131006/pexels-photo-6131006.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="Third slide"
             />
@@ -37,7 +37,7 @@ const HomePage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="d-block w-50 mx-auto"
               src="https://images.pexels.com/photos/5256144/pexels-photo-5256144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="Second slide"
             />

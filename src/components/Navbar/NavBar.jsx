@@ -7,16 +7,20 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 
 let NavBar = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/">
-          <i class="fa-solid fa-shield-dog"></i> Brindle App
+        <Navbar.Brand href="/" className="text-info">
+          <i class="fa-solid fa-shield-dog text-info "></i> Brindle App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto ">
-            <Nav.Link href="/clients/list">Clients</Nav.Link>
-            <Nav.Link href="/dogs/list">Dogs</Nav.Link>
+            <Nav.Link className="text-light" href="/clients/list">
+              Clients
+            </Nav.Link>
+            <Nav.Link className="text-light" href="/dogs/list">
+              Dogs
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

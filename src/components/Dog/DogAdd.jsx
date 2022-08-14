@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
@@ -13,7 +13,15 @@ let DogAdd = () => {
   const [dogGender, setDogGender] = useState('')
   const [dogCoatLength, setDogCoatLength] = useState('')
   const [dogImage, setDogImage] = useState('')
-  const [clientId, setClientId] = useState('')
+  const [clientArray, setClientArray] = useState([])
+  const [selectedClient, setSelectedClient] = useState('')
+  const [myKey, setMyKey] = useState(0)
+
+  useEffect(() => {
+    fetch('http://localhost:9292/clients/list')
+      .then(resp => resp.json())
+      .then(obj => setClientArray(obj))
+  }, [])
 
   function handleNewDogSubmit(e) {
     e.preventDefault()
@@ -25,7 +33,7 @@ let DogAdd = () => {
       dog_weight: dogWeight,
       dog_gender: dogGender,
       dog_coat_length: dogCoatLength,
-      client_id: clientId,
+      client_id: selectedClient,
     }
 
     setDogName('')
@@ -34,7 +42,8 @@ let DogAdd = () => {
     setDogWeight('')
     setDogGender('')
     setDogCoatLength('')
-    setClientId('')
+    setSelectedClient('')
+    setMyKey(myKey + 1)
 
     fetch('http://127.0.0.1:9292/dogs/add', {
       method: 'POST',
@@ -49,7 +58,7 @@ let DogAdd = () => {
 
   return (
     <Container>
-      <Form className="mt-5" onSubmit={handleNewDogSubmit}>
+      <Form key={myKey} className="mt-5" onSubmit={handleNewDogSubmit}>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridDogName">
             <Form.Label>Dog Name</Form.Label>
@@ -119,13 +128,21 @@ let DogAdd = () => {
             />
           </Form.Group>
 
-          <Form.Group as={Col} controlId="formGridClientId">
-            <Form.Label>Client Id</Form.Label>
-            <Form.Control
+          <Form.Group as={Col} controlId="formGridDogClientId">
+            <Form.Label>Client Name</Form.Label>
+            <Form.Select
+              aria-label="Default select example"
               onChange={e => {
-                setClientId(e.target.value)
+                setSelectedClient(e.target.selectedOptions[0].index)
               }}
-            />
+            >
+              <option>Choose Client</option>
+              {clientArray.map(client => (
+                <option key={client.id} value={client.client_id}>
+                  {`${client.client_last_name}, ${client.client_first_name}`}
+                </option>
+              ))}
+            </Form.Select>
           </Form.Group>
         </Row>
 

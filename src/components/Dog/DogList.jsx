@@ -31,11 +31,12 @@ let DogList = () => {
       <Container>
         <Row className="mt-2">
           <Col md={4}>
-            <Button variant="outline-success" href="/dogs/add">
+            <Button variant="outline-info" href="/dogs/add">
               Add New Dog
             </Button>
           </Col>
-          <Col md={{ span: 4, offset: 4 }}>
+          {/* Add search bar as a stretch goal */}
+          {/* <Col md={{ span: 4, offset: 4 }}>
             <Form className="d-flex">
               <Form.Control
                 type="search"
@@ -43,9 +44,9 @@ let DogList = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-info">Search</Button>
             </Form>
-          </Col>
+          </Col> */}
         </Row>
 
         {/* This will generate the dog cards */}
