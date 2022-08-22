@@ -10,7 +10,7 @@ let NavBar = () => {
     <Navbar bg="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/" className="text-info">
-          <i class="fa-solid fa-shield-dog text-info "></i> Brindle App
+          <i className="fa-solid fa-shield-dog text-info "></i> Brindle App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
